@@ -12,11 +12,14 @@ import com.example.garbageapp.utility.ItemsDB;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ItemsDB itemsDB = ItemsDB.get();;
+    private static ItemsDB itemsDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ItemsDB.setContext(MainActivity.this);
+        itemsDB = ItemsDB.get();
 
         Button whereBtn = findViewById(R.id.where_btn);
         Button addItemBtn = findViewById(R.id.add_item_btn);

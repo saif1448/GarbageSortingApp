@@ -13,11 +13,13 @@ import com.example.garbageapp.utility.ItemsDB;
 
 public class AddItemActivity extends AppCompatActivity {
 
-    private static ItemsDB itemsDB = ItemsDB.get();
+    private static ItemsDB itemsDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+
+        itemsDB = ItemsDB.get();
 
         Button addNewBtn = findViewById(R.id.add_new_item_btn);
 
