@@ -5,29 +5,14 @@
     android:layout_width="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+
+    <FrameLayout
+        android:id="@+id/container_ui"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Where to place item:"/>
+        android:layout_height="match_parent" />
 
-    <EditText
-        android:id="@+id/editTxt"
+    <FrameLayout
+        android:id="@+id/container_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/where_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WHERE" />
-
-    <Button
-        android:id="@+id/add_item_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD A NEW ITEM" />
-
+        android:layout_height="match_parent" />
 </LinearLayout>
