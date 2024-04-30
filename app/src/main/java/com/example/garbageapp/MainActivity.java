@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         whereBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText itemText = findViewById(R.id.editTxt);
+                EditText itemText = findViewById(R.id.whatText);
                 String itemName = itemText.getText().toString();
                 String place = itemName+ " should be placed in: "+itemsDB.returnPlace(itemName.toLowerCase());
                 itemText.setText(place);

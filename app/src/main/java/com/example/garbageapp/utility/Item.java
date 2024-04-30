@@ -1,6 +1,8 @@
 package com.example.garbageapp.utility;
 
-public class Item {
+import androidx.lifecycle.ViewModel;
+
+public class Item extends ViewModel {
     private String name;
     private String place;
 
