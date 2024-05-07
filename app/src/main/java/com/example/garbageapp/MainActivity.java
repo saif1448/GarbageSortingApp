@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ItemsDB.setContext(MainActivity.this);
+//        ItemsDB.setContext(MainActivity.this);
         itemsDB = ItemsDB.get();
         setUpFragments();
     }
