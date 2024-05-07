@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/whatText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,25 +8,32 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Where to place item:" />
+        android:text="Where to place item:"
+        android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/whatText"
+        android:id="@+id/editTexUi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:inputType="text" />
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/where_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WHERE" />
+        android:text="WHERE"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        />
 
-    <Button
-        android:id="@+id/add_item_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD A NEW ITEM" />
+    <!--    <Button-->
+<!--        android:id="@+id/add_item_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="ADD A NEW ITEM"-->
+<!--        android:textSize="20sp" />-->
 
 </LinearLayout>

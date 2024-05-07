@@ -1,6 +1,8 @@
 package com.example.garbageapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,27 +22,21 @@ public class MainActivity extends AppCompatActivity {
 
         ItemsDB.setContext(MainActivity.this);
         itemsDB = ItemsDB.get();
+        setUpFragments();
+    }
 
-        Button whereBtn = findViewById(R.id.where_btn);
-        Button addItemBtn = findViewById(R.id.add_item_btn);
-        whereBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText itemText = findViewById(R.id.whatText);
-                String itemName = itemText.getText().toString();
-                String place = itemName+ " should be placed in: "+itemsDB.returnPlace(itemName.toLowerCase());
-                itemText.setText(place);
-            }
-        });
+    private void setUpFragments(){
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragmentUI = fm.findFragmentById(R.id.container_ui);
+        Fragment fragmentList = fm.findFragmentById(R.id.container_list);
+        if(fragmentUI == null && fragmentList == null){
+            fragmentUI = new UIFragment();
+            fragmentList = new ListFragment();
+            fm.beginTransaction()
+                    .add(R.id.container_ui, fragmentUI)
+                    .add(R.id.container_list, fragmentList)
+                    .commit();
 
-        addItemBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
+        }
     }
 }

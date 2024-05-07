@@ -36,6 +36,15 @@ public class ItemsDB {
         itemList.put(newItem.getName(), newItem.getPlace());
     }
 
+    public String listItems(){
+        String r = "";
+        for(HashMap.Entry<String, String> item: itemList.entrySet()){
+            r += item.getKey() + " in "+ item.getValue() + "\n";
+        }
+
+        return r;
+    }
+
     public void fillItemsDB(Context context, String filename) {
         try {
             BufferedReader reader= new BufferedReader(
