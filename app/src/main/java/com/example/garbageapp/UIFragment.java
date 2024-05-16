@@ -42,12 +42,6 @@ public class UIFragment extends Fragment {
 //        Button addItemBtn = v.findViewById(R.id.add_item_btn);
         Button deleteBtn = v.findViewById(R.id.delete_btn);
 
-//        whereBtn.setOnClickListener(view -> {
-//            String itemName = itemWhat.getText().toString();
-//            String place = itemName+ " should be placed in: "+itemsDB.getWhere(itemName.toLowerCase());
-//            itemWhat.setText(place);
-//        });
-
         whereBtn.setOnClickListener(view->{
             viewModel.onFindItemClick(itemWhat);
         });
@@ -56,10 +50,14 @@ public class UIFragment extends Fragment {
             viewModel.onDeleteItemClick(itemWhat, getActivity());
         });
 
+//
+//        addItemBtn.setOnClickListener(view -> {
+//            viewModel.onAddItemClick(itemWhat, getActivity());
+//        });
 
 
 //        addItemBtn.setOnClickListener(view ->{
-//            Intent intent = new Intent(UIFragment.this, AddItemActivity.class);
+//            Intent intent = new Intent(requireActivity(), AddItemActivity.class);
 //            startActivity(intent);
 //        });
 

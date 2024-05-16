@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Garbage Sorting App V2</string>
+    <string name="app_name">Garbage Sorting App V7</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="empty_toast">Please type something in the what and where fields</string>

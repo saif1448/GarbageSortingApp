@@ -5,6 +5,7 @@
     android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="horizontal">
 
     <FrameLayout
@@ -25,7 +26,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/container_ui"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    </FrameLayout>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/container_ui"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1">-->
+<!--    </FrameLayout>-->
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/container_list"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:textSize="15sp"-->
+<!--        android:layout_weight="1">-->
+<!--    </FrameLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
