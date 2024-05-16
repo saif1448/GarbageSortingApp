@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,31 +19,40 @@ public class MainActivity extends AppCompatActivity {
 
 //    private static ItemsDB itemsDB;
 
-    GarbageViewModel list;
+    private GarbageViewModel list;
+    Fragment fragmentUI, fragmentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         list = new ViewModelProvider(this).get(GarbageViewModel.class);
-        list.awaitInit();
+//        list.awaitInit();
 
-//        itemsDB = ItemsDB.get();
-        setUpFragments();
     }
 
-    private void setUpFragments(){
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragmentUI = fm.findFragmentById(R.id.container_ui);
-        Fragment fragmentList = fm.findFragmentById(R.id.container_list);
-        if(fragmentUI == null && fragmentList == null){
-            fragmentUI = new UIFragment();
-            fragmentList = new ListFragment();
-            fm.beginTransaction()
-                    .add(R.id.container_ui, fragmentUI)
-                    .add(R.id.container_list, fragmentList)
-                    .commit();
-
-        }
-    }
+//    private void setUpFragments(){
+//        FragmentManager fm = getSupportFragmentManager();
+//        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+//            fragmentUI = fm.findFragmentById(R.id.container_ui);
+//            fragmentList = fm.findFragmentById(R.id.container_list);
+//            if(fragmentUI == null && fragmentList == null){
+//                fragmentUI = new UIFragment();
+//                fragmentList = new ListFragment();
+//                fm.beginTransaction()
+//                        .add(R.id.container_ui, fragmentUI)
+//                        .add(R.id.container_list, fragmentList)
+//                        .commit();
+//
+//            }
+//        }else{
+//            if(fragmentUI == null){
+//                fragmentUI = new UIFragment();
+//                fm.beginTransaction()
+//                        .add(R.id.container_ui, fragmentUI)
+//                        .commit();
+//            }
+//        }
+//
+//    }
 }

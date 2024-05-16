@@ -25,7 +25,7 @@ public class ListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        itemsDB = ItemsDB.get();
+
     }
 
     @Override
@@ -33,14 +33,11 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.fragment_list, container, false);
-//        final TextView listThings = v.findViewById(R.id.listItems);
+
 
         viewModel = new ViewModelProvider(requireActivity()).get(GarbageViewModel.class);
+        viewModel.awaitInit();
 
-
-//        String listThingsTxt = itemsDB.listItems();
-//        viewModel.getUiState().observe(getViewLifecycleOwner(), uiState -> listThings.setText(uiState.listItems));
-//        listThings.setText(listThingsTxt);
 
         RecyclerView itemList = v.findViewById(R.id.listItems);
         itemList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -48,7 +45,6 @@ public class ListFragment extends Fragment {
         itemList.setAdapter(mAdapter);
 
         viewModel.getUiState().observe(getActivity(), itemsDB -> mAdapter.notifyDataSetChanged());
-
 
 
         return  v;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,12 +36,14 @@ public class UIFragment extends Fragment {
 
         final View v = inflater.inflate(R.layout.fragment_ui, container, false);
         final GarbageViewModel viewModel = new ViewModelProvider(requireActivity()).get(GarbageViewModel.class);
+        viewModel.awaitInit();
 
         EditText itemWhat = v.findViewById(R.id.editTexUi);
 
         Button whereBtn = v.findViewById(R.id.where_btn);
-//        Button addItemBtn = v.findViewById(R.id.add_item_btn);
+        Button addItemBtn = v.findViewById(R.id.add_item_btn);
         Button deleteBtn = v.findViewById(R.id.delete_btn);
+        Button showListBtn = v.findViewById(R.id.showListBtn);
 
         whereBtn.setOnClickListener(view->{
             viewModel.onFindItemClick(itemWhat);
@@ -50,10 +53,17 @@ public class UIFragment extends Fragment {
             viewModel.onDeleteItemBtnClick(itemWhat, getActivity());
         });
 
-//
-//        addItemBtn.setOnClickListener(view -> {
-//            viewModel.onAddItemClick(itemWhat, getActivity());
-//        });
+        showListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_UIFragment_to_ListFragment);
+            }
+        });
+
+
+        addItemBtn.setOnClickListener(view -> {
+            Navigation.findNavController(view).navigate(R.id.action_UIFragment_to_AddItemFragment);
+        });
 
 
 //        addItemBtn.setOnClickListener(view ->{

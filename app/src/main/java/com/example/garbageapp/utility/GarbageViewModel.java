@@ -29,7 +29,14 @@ public class GarbageViewModel extends ViewModel {
     public void awaitInit() {
         itemsDB.awaitInit();
         updateUiState();
+        System.out.println(getUiState().getValue().listItems);
+
     }
+
+//    public GarbageViewModel(){
+//        itemsDB.awaitInit();
+//        updateUiState();
+//    }
 
     public void onAddItemClick(EditText itemWhat, EditText itemWhere, FragmentActivity activity){
         String whatS = itemWhat.getText().toString().trim();
@@ -122,6 +129,7 @@ public class GarbageViewModel extends ViewModel {
         public GarbageUiState(List<Item> listItems, int itemListSize){
             this.listItems = listItems;
             this.itemListSize = itemListSize;
+
         }
 
         public static GarbageUiState getEmpty(){

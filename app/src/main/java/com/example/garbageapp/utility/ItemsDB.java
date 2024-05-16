@@ -9,13 +9,15 @@ public class ItemsDB {
 //    private static ItemsDB sItemsDB;
     private final static String GarbageURL = "https://garbageserver.onrender.com/";
 
+
     private List<Item> values;
     private final Semaphore init = new Semaphore(0);
 
 
     public ItemsDB(){
         values = new ArrayList<>();
-        networkDB(GarbageURL, "", values);
+//        networkDB(GarbageURL, "", values);
+        fillItemsDB();
     }
 
     public void awaitInit() {
@@ -33,7 +35,8 @@ public class ItemsDB {
 
     public synchronized void addItem(String what, String where) {
         values.add(new Item(what, where));
-        networkDB(GarbageURL, "?op=insert"+ "&what=" + what + "&whereC=" + where, values);
+//        networkDB(GarbageURL, "?op=insert"+ "&what=" + what + "&whereC=" + where, values);
+
     }
 
     public synchronized void removeItem(String what) {
@@ -68,6 +71,9 @@ public class ItemsDB {
                     break;
                 }
             }
+        if(place.equals("")){
+            return "not found";
+        }
         return place;
     }
 
@@ -114,13 +120,13 @@ public class ItemsDB {
 //        return mapToListItems;
 //    }
 //
-//    public void fillItemsDB(){
-//        itemList.put("newspaper", "paper");
-//        itemList.put("magazine", "paper");
-//        itemList.put("milk carton,", "food");
-//        itemList.put("shoe box", "cardboard");
-//        itemList.put("can", "metal");
-//        itemList.put("book", "paper");
-//    }
+    public void fillItemsDB(){
+        values.add(new Item("newspaper", "paper"));
+        values.add(new Item("magazine", "paper"));
+        values.add(new Item("milk carton,", "food"));
+        values.add(new Item("shoe box", "cardboard"));
+        values.add(new Item("can", "metal"));
+        values.add(new Item("book", "paper"));
+    }
 
 }
