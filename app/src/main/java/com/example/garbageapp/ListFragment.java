@@ -20,12 +20,12 @@ import com.example.garbageapp.utility.Item;
 
 public class ListFragment extends Fragment {
 
-    private static ItemsDB itemsDB;
+//    private static ItemsDB itemsDB;
      GarbageViewModel viewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        itemsDB = ItemsDB.get();
+//        itemsDB = ItemsDB.get();
     }
 
     @Override

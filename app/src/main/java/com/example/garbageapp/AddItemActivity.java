@@ -19,7 +19,7 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        itemsDB = ItemsDB.get();
+        itemsDB = new ItemsDB();
 
         Button addNewBtn = findViewById(R.id.add_new_item_btn);
 
@@ -33,7 +33,7 @@ public class AddItemActivity extends AppCompatActivity {
                 String whereTextValue = whereText.getText().toString();
 
                 Item newItem = new Item(whatTextValue, whereTextValue);
-                itemsDB.addItem(newItem);
+                itemsDB.addItem(whatTextValue, whereTextValue);
                 Intent intent = new Intent(AddItemActivity.this, MainActivity.class);
                 startActivity(intent);
             }

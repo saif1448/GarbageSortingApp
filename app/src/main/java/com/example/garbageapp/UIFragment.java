@@ -20,13 +20,13 @@ import com.example.garbageapp.utility.ItemsDB;
 
 public class UIFragment extends Fragment {
 
-    private static ItemsDB itemsDB;
+//    private static ItemsDB itemsDB;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        itemsDB = ItemsDB.get();
+//        itemsDB = ItemsDB.get();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class UIFragment extends Fragment {
         });
 
         deleteBtn.setOnClickListener(view ->{
-            viewModel.onDeleteItemClick(itemWhat, getActivity());
+            viewModel.onDeleteItemBtnClick(itemWhat, getActivity());
         });
 
 //

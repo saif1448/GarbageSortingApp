@@ -25,6 +25,4 @@
         android:id="@+id/item_where"
         android:layout_weight="1"
         android:textSize="@dimen/text_size"/>
-
-
 </LinearLayout>
