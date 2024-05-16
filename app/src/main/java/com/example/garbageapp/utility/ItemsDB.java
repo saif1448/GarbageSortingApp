@@ -29,7 +29,7 @@ public class ItemsDB {
 //        context = aContext;
 //    }
 
-    public HashMap<String, String> getItemsDB() {
+    public HashMap<String, String> getItemsList() {
         return itemList;
     }
     public String returnPlace(String name){
@@ -60,6 +60,16 @@ public class ItemsDB {
 
         return r;
     }
+
+    public List<Item> convertedToListItems(){
+        List<Item> mapToListItems = new ArrayList<>();
+        for(HashMap.Entry<String, String> item: itemList.entrySet()){
+            Item i = new Item(item.getKey(), item.getValue());
+            mapToListItems.add(i);
+        }
+        return mapToListItems;
+    }
+
 
 //    public void fillItemsDB(Context context, String filename) {
 //        try {
