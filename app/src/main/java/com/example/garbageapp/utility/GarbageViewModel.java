@@ -51,11 +51,11 @@ public class GarbageViewModel extends ViewModel {
     public void onDeleteItemClick(TextView itemWhat, FragmentActivity activity) {
         String what = itemWhat.getText().toString().trim();
         if (!what.isEmpty() && itemsDB.isPresent(what)) {
-            itemsDB.removeItem(itemWhat.getText().toString());
+            itemsDB.removeItem(what);
 //            uiState.setValue(new GarbageUiState(itemsDB.listItems()));
             uiState.setValue(new GarbageUiState(itemsDB.convertedToListItems(), itemsDB.convertedToListItems().size()));
-            showToast(activity, "Removed " + itemWhat.getText());
-        } else showToast(activity, itemWhat.getText() + " not found");
+            showToast(activity, "Removed " + what);
+        } else showToast(activity, what + " not found");
     }
 
     public void onDeleteItemClick(String what, FragmentActivity activity) {
