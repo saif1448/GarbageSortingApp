@@ -53,17 +53,6 @@ public class GarbageViewModel extends ViewModel {
         }
     }
 
-//    public void onAddItemClick(EditText itemWhat, FragmentActivity activity) {
-//        String whatS = itemWhat.getText().toString().trim();
-//        String whereS = itemsDB.getWhere(whatS);
-//        if ((whatS.length() > 0) && (whereS.length() > 0)) {
-//            itemsDB.addItem(new Item(whereS, whereS));
-//            itemWhat.setText("");
-//            itemWhat.onEditorAction(EditorInfo.IME_ACTION_DONE); //to close the keyboard when done with the text
-//            uiState.setValue(new GarbageUiState(itemsDB.convertedToListItems(), itemsDB.convertedToListItems().size()));
-//        } else
-//            showToast(activity);
-//    }
 
     private boolean containsItem(List<Item> itemList, String what) {
         for (Item item : itemList) {
@@ -77,19 +66,18 @@ public class GarbageViewModel extends ViewModel {
     public void onDeleteItemBtnClick(TextView itemWhat, FragmentActivity activity) {
         String what = itemWhat.getText().toString().trim();
         if (containsItem(itemsDB.getValues(), what)) {
-            itemsDB.removeItem(itemWhat.getText().toString());
+            itemsDB.removeItem(what);
 //            uiState.setValue(new GarbageUiState(itemsDB.convertedToListItems(), itemsDB.convertedToListItems().size()));
             updateUiState();
-            showToast(activity, "Removed " + itemWhat.getText());
+            showToast(activity, "Removed " + what);
             itemWhat.setText("");
-        } else showToast(activity, itemWhat.getText() + " not found");
+        } else showToast(activity, what + " not found");
     }
 
     public void onDeleteItemClick(String what, FragmentActivity activity) {
         String message;
         if (containsItem(itemsDB.getValues(), what)) {
             itemsDB.removeItem(what);
-//            uiState.setValue(new GarbageUiState(itemsDB.convertedToListItems(), itemsDB.convertedToListItems().size()));
             updateUiState();
             message = "Removed " + what;
         } else {
@@ -98,13 +86,13 @@ public class GarbageViewModel extends ViewModel {
         showToast(activity, message);
     }
 
-    public void onFindItemClick(TextView itemWhat, TextView itemWhere) {
-        String what = itemWhat.getText().toString().trim();
-        itemWhat.setBackgroundColor(Color.parseColor("#FFFFFF"));
-        itemWhere.setText(itemsDB.returnPlace(what));
-        itemWhat.onEditorAction(EditorInfo.IME_ACTION_DONE); //to close the keyboard when done with the text
-        itemWhere.onEditorAction(EditorInfo.IME_ACTION_DONE);
-    }
+//    public void onFindItemClick(TextView itemWhat, TextView itemWhere) {
+//        String what = itemWhat.getText().toString().trim();
+//        itemWhat.setBackgroundColor(Color.parseColor("#FFFFFF"));
+//        itemWhere.setText(itemsDB.returnPlace(what));
+//        itemWhat.onEditorAction(EditorInfo.IME_ACTION_DONE); //to close the keyboard when done with the text
+//        itemWhere.onEditorAction(EditorInfo.IME_ACTION_DONE);
+//    }
 
     public void onFindItemClick(EditText itemWhere) {
         String what = itemWhere.getText().toString().trim();

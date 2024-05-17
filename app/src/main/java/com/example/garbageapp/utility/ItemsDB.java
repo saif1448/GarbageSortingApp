@@ -6,18 +6,15 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 
 public class ItemsDB {
-//    private static ItemsDB sItemsDB;
-    private final static String GarbageURL = "https://garbageserver.onrender.com/";
-
-
+    private final static String GarbageURL = "https://garbageserver2.onrender.com/";
     private List<Item> values;
     private final Semaphore init = new Semaphore(0);
 
 
     public ItemsDB(){
         values = new ArrayList<>();
-//        networkDB(GarbageURL, "", values);
-        fillItemsDB();
+        networkDB(GarbageURL, "", values);
+//        fillItemsDB();
     }
 
     public void awaitInit() {
@@ -35,7 +32,7 @@ public class ItemsDB {
 
     public synchronized void addItem(String what, String where) {
         values.add(new Item(what, where));
-//        networkDB(GarbageURL, "?op=insert"+ "&what=" + what + "&whereC=" + where, values);
+        networkDB(GarbageURL, "?op=insert"+ "&what=" + what + "&whereC=" + where, values);
 
     }
 
