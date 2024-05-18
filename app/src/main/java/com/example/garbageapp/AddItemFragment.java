@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,11 @@ public class AddItemFragment extends Fragment {
         String whereS = where.getText().toString().trim();
         addItemButton.setOnClickListener(view ->{
             viewModel.onAddItemClick(what, where, getActivity());
+        });
+
+        Button backBtnAddI = v.findViewById(R.id.backBtnAddI);
+        backBtnAddI.setOnClickListener(view -> {
+            Navigation.findNavController(view).navigate(R.id.action_AddItemFragment_to_UIFragment);
         });
 
         return v;

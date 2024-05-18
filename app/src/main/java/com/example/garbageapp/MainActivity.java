@@ -17,42 +17,10 @@ import com.example.garbageapp.utility.ItemsDB;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private static ItemsDB itemsDB;
 
-    private GarbageViewModel list;
-    Fragment fragmentUI, fragmentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        list = new ViewModelProvider(this).get(GarbageViewModel.class);
-//        list.awaitInit();
-
     }
-
-//    private void setUpFragments(){
-//        FragmentManager fm = getSupportFragmentManager();
-//        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-//            fragmentUI = fm.findFragmentById(R.id.container_ui);
-//            fragmentList = fm.findFragmentById(R.id.container_list);
-//            if(fragmentUI == null && fragmentList == null){
-//                fragmentUI = new UIFragment();
-//                fragmentList = new ListFragment();
-//                fm.beginTransaction()
-//                        .add(R.id.container_ui, fragmentUI)
-//                        .add(R.id.container_list, fragmentList)
-//                        .commit();
-//
-//            }
-//        }else{
-//            if(fragmentUI == null){
-//                fragmentUI = new UIFragment();
-//                fm.beginTransaction()
-//                        .add(R.id.container_ui, fragmentUI)
-//                        .commit();
-//            }
-//        }
-//
-//    }
 }

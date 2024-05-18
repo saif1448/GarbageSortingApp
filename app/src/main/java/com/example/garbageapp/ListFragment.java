@@ -5,12 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.garbageapp.utility.GarbageViewModel;
@@ -45,6 +47,17 @@ public class ListFragment extends Fragment {
         itemList.setAdapter(mAdapter);
 
         viewModel.getUiState().observe(getActivity(), itemsDB -> mAdapter.notifyDataSetChanged());
+
+        Button backBtnPortrait = v.findViewById(R.id.backBtnLs);
+//        Button backBtnLand = v.findViewById(R.id.backBtnLs2);
+//
+        backBtnPortrait.setOnClickListener(view -> {
+            Navigation.findNavController(view).navigate(R.id.action_ListFragment_to_UIFragment);
+        });
+
+//        backBtnLand.setOnClickListener(view -> {
+//            Navigation.findNavController(view).navigate(R.id.action_ListFragment_to_UIFragment);
+//        });
 
 
         return  v;

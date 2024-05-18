@@ -21,13 +21,12 @@ import com.example.garbageapp.utility.ItemsDB;
 
 public class UIFragment extends Fragment {
 
-//    private static ItemsDB itemsDB;
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        itemsDB = ItemsDB.get();
     }
 
     @Override
@@ -65,14 +64,6 @@ public class UIFragment extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_UIFragment_to_AddItemFragment);
         });
 
-
-//        addItemBtn.setOnClickListener(view ->{
-//            Intent intent = new Intent(requireActivity(), AddItemActivity.class);
-//            startActivity(intent);
-//        });
-
-
-//        return inflater.inflate(R.layout.fragment_ui, container, false);
         return v;
     }
 }

@@ -29,14 +29,10 @@ public class GarbageViewModel extends ViewModel {
     public void awaitInit() {
         itemsDB.awaitInit();
         updateUiState();
-        System.out.println(getUiState().getValue().listItems);
+//        System.out.println(getUiState().getValue().listItems);
 
     }
 
-//    public GarbageViewModel(){
-//        itemsDB.awaitInit();
-//        updateUiState();
-//    }
 
     public void onAddItemClick(EditText itemWhat, EditText itemWhere, FragmentActivity activity){
         String whatS = itemWhat.getText().toString().trim();
@@ -48,6 +44,7 @@ public class GarbageViewModel extends ViewModel {
             itemWhat.onEditorAction(EditorInfo.IME_ACTION_DONE);
             itemWhere.onEditorAction(EditorInfo.IME_ACTION_DONE);
             updateUiState();
+            showToast(activity, "Added " + whatS);
         }else{
             showToast(activity);
         }
@@ -67,7 +64,6 @@ public class GarbageViewModel extends ViewModel {
         String what = itemWhat.getText().toString().trim();
         if (containsItem(itemsDB.getValues(), what)) {
             itemsDB.removeItem(what);
-//            uiState.setValue(new GarbageUiState(itemsDB.convertedToListItems(), itemsDB.convertedToListItems().size()));
             updateUiState();
             showToast(activity, "Removed " + what);
             itemWhat.setText("");
